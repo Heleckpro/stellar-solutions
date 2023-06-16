@@ -1,56 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Astronomy Website</title>
+  <title>Stellar Solutions - Articles</title>
   <style>
-    /* CSS styles omitted for brevity */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
   </style>
+  <script>
+    var articles = [
+      {
+        title: "Exploring the Mysteries of the Universe: Fascinating Space Facts",
+        content: "<p>Article 1: The Black Hole Enigma</p><p>Black holes, with their gravitational pull so strong that nothing can escape, have long been a subject of fascination for scientists and the public alike. These cosmic objects, formed from the remnants of massive stars, create a gravitational force so intense that even light cannot escape their grasp. Studying black holes provides insights into the fundamental laws of physics and helps us understand the nature of space and time.</p>"
+      },
+      {
+        title: "The Majestic Dance of Binary Stars: Celestial Partnerships",
+        content: "<p>Article 2: The Majestic Dance of Binary Stars</p><p>Binary stars, consisting of two stars orbiting a common center of mass, showcase the beauty of celestial partnerships. These stellar duos come in various forms, from closely orbiting pairs that appear as a single point of light to widely separated systems with distinct individual stars. Observing binary stars allows astronomers to investigate stellar evolution, measure stellar masses, and gain insights into the dynamics of star systems.</p>"
+      },
+      {
+        title: "The Extraterrestrial Oasis: Water on Mars",
+        content: "<p>Article 3: The Extraterrestrial Oasis: Water on Mars</p><p>For years, Mars has captured the imaginations of scientists and the public as a potential abode for life beyond Earth. Recent discoveries have revealed the presence of water ice on the Martian surface and subsurface, providing crucial evidence of Mars' watery past. Understanding the distribution and history of water on Mars contributes to our understanding of the planet's habitability and the potential for past or present microbial life.</p>"
+      },
+      {
+        title: "The Great Red Spot: A Storm of Immense Proportions",
+        content: "<p>Article 4: The Great Red Spot: A Storm of Immense Proportions</p><p>Jupiter, the largest planet in our solar system, is home to a remarkable feature known as the Great Red Spot. This massive storm, larger than Earth itself, has been raging for centuries. The swirling clouds and intense winds within the Great Red Spot offer scientists a unique opportunity to study atmospheric dynamics on a gas giant. Monitoring the evolution of this iconic storm provides insights into the complex behavior of planetary atmospheres.</p>"
+      }
+    ];
+
+    // Retrieve the article index from the URL query string
+    function getArticleIndex() {
+      var urlParams = new URLSearchParams(window.location.search);
+      return parseInt(urlParams.get("index")) || 0;
+    }
+
+    // Display the article on the page
+    function displayArticle() {
+      var articleIndex = getArticleIndex();
+      var article = articles[articleIndex];
+
+      var articleTitle = document.getElementById("article-title");
+      var articleContent = document.getElementById("article-content");
+
+      articleTitle.textContent = article.title;
+      articleContent.innerHTML = article.content;
+    }
+  </script>
 </head>
 <body>
-  <!-- Rest of the HTML code -->
+  <h1>Articles</h1>
+  <ul>
+    <li><a href="articles.html?index=0">Article 1: Exploring the Mysteries of the Universe</a></li>
+    <li><a href="articles.html?index=1">Article 2: The Majestic Dance of Binary Stars</a></li>
+    <li><a href="articles.html?index=2">Article 3: The Extraterrestrial Oasis: Water on Mars</a></li>
+    <li><a href="articles.html?index=3">Article 4: The Great Red Spot: A Storm of Immense Proportions</a></li>
+  </ul>
 
-  <section>
-    <!-- Rest of the section content -->
-
-    <h2>Articles</h2>
-    <p>Read informative articles about space exploration, recent discoveries, and the history of astronomy.</p>
-    <button onclick="openRandomArticle()">Article</button>
-  </section>
-
-  <!-- Rest of the HTML code -->
+  <h2 id="article-title"></h2>
+  <div id="article-content"></div>
 
   <script>
-    function openRandomArticle() {
-      var articles = [
-        {
-          title: "Exploring the Mysteries of the Universe: Fascinating Space Facts",
-          content: "Article 1: The Black Hole Enigma: Unveiling the Cosmic Vacuum Cleaners Black holes, the enigmatic cosmic entities, possess an intense gravitational pull that not even light can escape. They form when massive stars collapse under their own gravity, creating a region of space with extraordinary properties. Did you know that black holes come in various sizes, ranging from stellar-mass black holes to supermassive black holes millions or even billions of times the mass of our Sun? Scientists believe that these celestial vacuum cleaners play a vital role in the evolution of galaxies, influencing their structure and growth. As matter falls into a black hole, it forms an accretion disk, a swirling mass of superheated gas and dust. The gravitational energy released during this process generates powerful jets of radiation and particles, impacting the surrounding environment. Understanding black holes is crucial for unraveling the mysteries of the universe. Their extreme nature challenges our current understanding of physics and offers opportunities for new discoveries. Scientists employ various observational techniques, such as detecting gravitational waves and studying the motion of nearby stars, to explore and comprehend these cosmic phenomena further."
-        },
-        {
-          title: "The Majestic Dance of Binary Stars: Celestial Partnerships",
-          content: "Article 2: The Majestic Dance of Binary Stars: Celestial Partnerships In the vastness of space, binary star systems captivate astronomers with their intricate celestial partnerships. These systems consist of two stars orbiting around a common center of mass, connected by the gravitational force between them. Binary stars come in different forms, each revealing unique characteristics about their nature and behavior. Visual binaries are the most common type, where the two stars are visible and can be directly observed. Spectroscopic binaries, on the other hand, are detected by analyzing the shifts in their spectral lines, caused by the Doppler effect as the stars move towards or away from us. Eclipsing binaries provide another fascinating aspect, where the stars periodically pass in front of each other, resulting in a dip in brightness as seen from Earth. These eclipses yield valuable data for measuring stellar properties, such as their sizes, masses, and temperatures, and contribute to our understanding of stellar evolution. The study of binary star systems enables astronomers to investigate a wide range of topics, including stellar dynamics, mass transfer between stars, and the formation and evolution of planetary systems. These celestial duos serve as celestial laboratories, offering insights into the fundamental processes that shape our universe."
-        },
-        {
-          title: "The Extraterrestrial Oasis: Water on Mars",
-          content: "Article 3: The Extraterrestrial Oasis: Water on Mars Mars, our neighboring planet, has long intrigued scientists with its potential for harboring life. Recent discoveries have revealed the presence of water on the Martian surface, transforming our understanding of this barren world. Both direct observations and data from orbiting spacecraft confirm the existence of water ice at the polar caps and in subsurface layers.Furthermore, evidence suggests that briny liquid water flows intermittently on the Martian surface. Dark streaks known as recurring slope lineae (RSL) appear seasonally on steep slopes, indicating the movement of liquid water. These findings raise tantalizing questions about the possibility of past or even present microbial life on Mars. The presence of water on Mars has significant implications for future human exploration and colonization efforts. Water can be used for drinking, growing crops, and producing rocket propellant, reducing the reliance on resources from Earth. Further exploration and scientific missions, such as the Mars rovers and future human missions, are underway to unveil the secrets hidden within the Martian landscape and pave the way for a better understanding of our planetary neighbor."
-        },
-        {
-          title: "The Great Red Spot: A Storm of Immense Proportions",
-          content: "Article 4: The Great Red Spot: A Storm of Immense Proportions Jupiter, the gas giant of our solar system, boasts a mesmerizing feature known as the Great Red Spot. This atmospheric phenomenon has been observed for over 300 years and continues to captivate scientists and amateur astronomers alike. The Great Red Spot is a massive storm, a swirling vortex of gas that creates a distinct crimson-colored oval shape on the surface of Jupiter. This colossal tempest is larger than Earth, highlighting the immense scale of this atmospheric disturbance. Winds within the Great Red Spot can reach speeds of up to 400 miles per hour (640 kilometers per hour), creating a chaotic and dynamic environment. Scientists believe that the storm is fueled by the planet's internal heat and the interaction between different layers of Jupiter's atmosphere. Studying the Great Red Spot provides valuable insights into the dynamics and longevity of such powerful storms. Scientists monitor its size, shape, and behavior, searching for patterns and changes over time. Observations from spacecraft, such as the Juno mission, and ground-based telescopes contribute to our understanding of Jupiter's atmospheric dynamics, weather patterns, and the mechanisms behind the persistence of this colossal storm. The Great Red Spot serves as a reminder of the extreme weather phenomena that can occur in our universe. By unraveling the mysteries of this iconic feature, scientists gain a deeper understanding of atmospheric processes not only on Jupiter but also on other planets within and beyond our solar system."
-        }
-      ];
-
-      var randomIndex = Math.floor(Math.random() * articles.length);
-      var randomArticle = articles[randomIndex];
-
-      // Open a new window or tab with the article
-      var newWindow = window.open("", "_blank");
-      newWindow.document.write("<html><head><title>" + randomArticle.title + "</title></head><body>");
-      newWindow.document.write("<h1>" + randomArticle.title + "</h1>");
-      newWindow.document.write("<p>" + randomArticle.content + "</p>");
-      newWindow.document.write("</body></html>");
-      newWindow.document.close();
-    }
+    displayArticle();
   </script>
 </body>
 </html>
